@@ -1,0 +1,51 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+.header{
+    background-color: gray;
+    color:white;
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom:1vh;
+    width: 100vh;
+}
+
+.mainContent{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    width: 100vh;
+}
+
+.sidebar1{
+    background-color: darkslategray;
+    color:white;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.content {
+    background-color: darkslategray;
+    color:white;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.sidebar2 {
+    background-color: gray;
+    color:white;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.footer{
+    background-color: gray;
+    color:white;
+    border-radius: 8px;
+    padding: 5px;   
+    margin-top:1vh;
+    width: 100vh;        
+}
