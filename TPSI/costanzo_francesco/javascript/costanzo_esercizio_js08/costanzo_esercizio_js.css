@@ -1,0 +1,70 @@
+#intestazione {
+    text-align: center;
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+
+#titolo {
+    grid-column: 3/4;
+    grid-row:1;
+}
+
+#task {
+    grid-column: 2/4;
+    grid-row:2;
+}
+
+#prio {
+    grid-column: 4/5;
+    grid-row:2;
+}
+
+#aggiungi {
+    grid-column: 5/6;
+    grid-row:2;
+}
+
+.tasks {
+    display: grid;
+    
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.text {
+    grid-column: 2/3;
+}
+
+.arrow {
+    grid-column: 3/4;
+}
+
+.checkMark {
+    grid-column: 4/5;
+}
+
+.cestino {
+    grid-column: 5/6;
+}
+
+button {
+    display: inline-grid;
+    place-items: center;
+    padding: 10px 20px;
+}
+
+.rosso {
+    color:red;
+}
+
+.arancione {
+    color:orange;
+}
+
+.verde {
+    color:green;
+}
