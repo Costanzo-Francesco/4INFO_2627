@@ -10,6 +10,12 @@ function addClasse(elemento, classe) {
     elemento.classList.add(classe);
 }
 
+function elimina(sender){
+    console.log("elimina avvio");
+    const container = document.getElementById(sender.srcElement.id)
+    container.remove();
+
+}
 function aggiungi() {
 
     console.log("Aggiungi avvio");
@@ -24,27 +30,27 @@ function aggiungi() {
     console.log(nomeTask, prio);
 
     const container = creaElemento("div");
-    addClasse(container, "tasks")
     const taskText = creaElemento("div");
-    taskText.classList.add("text");
+    addClasse(container, "tasks");
     const arrow = creaElemento("div");
-    arrow.classList.add("arrow");
+    taskText.classList.add("text");
     const checkMark = creaElemento("div");
     const checkBox = creaElemento("input");
+    addClasse(arrow, "arrow");
     checkBox.type = "checkbox"; //ToDo Event listener
-    checkMark.classList.add("checkMark");
+    addClasse(checkMark, "checkMark");
     const cestino = creaElemento("div");
     const bottone = creaElemento("button");
-    cestino.classList.add("cestino"); //ToDo Event Listener
+    addClasse(cestino, "cestino");//ToDo Event Listener
     
     taskText.innerText = nomeTask;
 
     if (prio == "bassa") {
-        arrow.classList.add("verde")
+        arrow.classList.add("verde");
     } else if (prio == "media") {
-        arrow.classList.add("arancione")
+        arrow.classList.add("arancione");
     } else if (prio == "alta") {
-        arrow.classList.add("rosso")
+        arrow.classList.add("rosso");
     }
     arrow.innerText = prio;
     bottone.innerText = "Cancella";
@@ -53,6 +59,8 @@ function aggiungi() {
     checkMark.append(checkBox);
     container.append(taskText, arrow, checkMark, cestino);
     tutteLeTask.append(container);
-
+    container.id = Date.now();
+    bottone.id = container.id;
+    bottone.addEventListener('click', elimina);
     
 }
