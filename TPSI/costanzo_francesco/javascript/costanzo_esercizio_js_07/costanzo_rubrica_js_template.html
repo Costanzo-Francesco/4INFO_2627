@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+    <html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+        <link rel="stylesheet" href="costanzo_rubrica_js_template.css">
+        <title>Rubrica JS</title>
+        <script src="costanzo_rubrica_js_template.js"></script>
+    </head>
+    <body>
+        <h1 class="main-title">Rubrica JS</h1>
+            <table id="tabella">
+                <tr>
+                    <th>Cognome</th>
+                    <th>Nome</th>
+                    <th>Indirizzo</th>
+                    <th>Telefono</th>
+                    <th colspan=2>Azioni</th>
+                </tr>
+                <tr class="inputx">
+                    <td ><input type="text" size=15 id="cognome"/></td>
+                    <td ><input type="text" size=15 id="nome"/></td>
+                    <td ><input type="text" size=30 id="indirizzo"/></td>
+                    <td ><input type="text" size=10 id="numero"/></td>
+                    <td>
+                        <button>Cerca</button>
+                    </td>
+                    <td>
+                        <button onclick="salva()">Salva</button>
+                    </td>
+                    <td>
+                        <button>Aggiorna</button>
+                    </td>
+                </tr>
+            </table>        
+    </body>
+</html>

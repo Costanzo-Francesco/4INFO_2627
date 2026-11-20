@@ -68,3 +68,7 @@ button {
 .verde {
     color:green;
 }
+
+.testoBarrato {
+    text-decoration: line-through;
+}

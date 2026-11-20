@@ -1,24 +1,43 @@
+//Funzioni raccogli dati
+
+function getId(id) {
+    return document.getElementById(id);
+}
+
 function getDato(nome) {
     return document.getElementById(nome).value;
 }
+
+// Funzione crea elementi
 
 function creaElemento(tipo) {
     return document.createElement(tipo);
 }
 
+//funzioni per css
+
 function addClasse(elemento, classe) {
     elemento.classList.add(classe);
 }
 
-function elimina(sender){
-    console.log("elimina avvio");
-    const container = document.getElementById(sender.srcElement.id)
-    container.remove();
-
+function toggleClasse(elemento, classe) {
+    elemento.classList.toggle(classe);
 }
+
+//funzioni per ToDo List
+
+function elimina(sender){
+    const container = getId(sender.srcElement.id);
+    container.remove();
+}
+
+function barrato(sender){
+    const testo = getId(sender.srcElement.id);
+    toggleClasse(testo, "testoBarrato");
+}
+
 function aggiungi() {
 
-    console.log("Aggiungi avvio");
     const nomeTask = getDato("task");
 
     if (nomeTask.length == 0) {
@@ -27,21 +46,26 @@ function aggiungi() {
     }
 
     const prio = getDato("prio");
-    console.log(nomeTask, prio);
-
     const container = creaElemento("div");
-    const taskText = creaElemento("div");
-    addClasse(container, "tasks");
+    const taskText = creaElemento("div");   
     const arrow = creaElemento("div");
-    taskText.classList.add("text");
     const checkMark = creaElemento("div");
     const checkBox = creaElemento("input");
-    addClasse(arrow, "arrow");
-    checkBox.type = "checkbox"; //ToDo Event listener
-    addClasse(checkMark, "checkMark");
     const cestino = creaElemento("div");
-    const bottone = creaElemento("button");
-    addClasse(cestino, "cestino");//ToDo Event Listener
+    const bottone = creaElemento("button");   
+    const tutteLeTask = document.getElementById("tutteLeTask");
+    addClasse(container, "tasks");
+    
+    taskText.classList.add("text");
+
+    addClasse(arrow, "arrow");
+    checkBox.type = "checkbox";
+    taskText.id = Date.now();
+    checkBox.id = taskText.id;
+    checkBox.addEventListener('change', barrato);
+    addClasse(checkMark, "checkMark");
+
+    addClasse(cestino, "cestino");
     
     taskText.innerText = nomeTask;
 
@@ -54,7 +78,7 @@ function aggiungi() {
     }
     arrow.innerText = prio;
     bottone.innerText = "Cancella";
-    const tutteLeTask = document.getElementById("tutteLeTask");
+
     cestino.append(bottone);
     checkMark.append(checkBox);
     container.append(taskText, arrow, checkMark, cestino);
