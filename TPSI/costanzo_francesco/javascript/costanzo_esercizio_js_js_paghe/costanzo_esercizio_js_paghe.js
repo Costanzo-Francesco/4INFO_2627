@@ -12,6 +12,7 @@ function creaElemento (elemento){
 function AddClasse (elemento, classe) {
     elemento.classList.add(classe);
 }
+
 function aggiungi() {
     console.log("Aggiungi avvio");
     const dipartimento = getDato("dipartimento");
@@ -24,7 +25,7 @@ function aggiungi() {
         return
     }
 
-    const tabella = getId("paghe")
+    const tabella = getId("corpoTabella");
     const riga = creaElemento("tr");
     const colonnaDipartimento = creaElemento("td");
     const colonnaCognome = creaElemento("td");
@@ -36,9 +37,37 @@ function aggiungi() {
     colonnaCognome.innerText = cognome;
     colonnaNome.innerText = nome;
     colonnaMese.innerText = mese;
-    colonnaImporto.innerText = importo + " \u20AC";
+    colonnaImporto.innerText = importo;
     AddClasse(colonnaImporto, "importo");
     riga.append(colonnaDipartimento, colonnaCognome, colonnaNome, colonnaMese, colonnaImporto);
-    tabella.append(riga);
+    tabella.prepend(riga);
+}
 
+function calcoloTotale (){
+    let totale = 0;
+    const corpoTabella = getId("corpoTabella");
+    const figliCorpo = corpoTabella.children;
+    if (figliCorpo.length > 7) {
+        const valori = document.getElementsByClassName("importo");
+        for (let i = 0; i < figliCorpo.length - 6; i++){
+            totale += Number(valori[i].innerText);
+        }
+    
+        return totale;
+    } else {
+        alert("Almeno 2 dati per procedere");
+    }
+}
+
+function calcolaPaghe() { 
+    const fasciaTotale = getId("totale");
+    fasciaTotale.innerText = calcoloTotale() + " \u20AC";
+}
+
+function calcolaMedia() { 
+    
+    totaleFigli = getId("corpoTabella").children.length - 6;
+    const fasciaMedia = getId("media");
+    fasciaMedia.innerText = calcoloTotale()/totaleFigli + " \u20AC";
+    
 }
